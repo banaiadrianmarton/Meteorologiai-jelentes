@@ -28,4 +28,26 @@ export default class Megoldas {
         const formazottIdo = `${ido.slice(0, 2)}:${ido.slice(2)}`;
         return `Az utolsó mérési adat a megadott településről ${formazottIdo}-kor érkezett.`;
     }
+
+    get HomersekletMagas(): string {
+        let maxFok: Idojaras = this.#idojaras[0];
+        this.#idojaras.forEach(element => {
+            if (element.fok > maxFok.fok) {
+                maxFok = element;
+            }
+        });
+        const formazottIdo = `${maxFok.ido.slice(0, 2)}:${maxFok.ido.slice(2)}`;
+        return `A legmagasabb hőmérséklet: ${maxFok.telepules} ${formazottIdo} ${maxFok.fok} fok.`;
+    }
+
+    get HomersekletAlacsony(): string {
+        let minFok: Idojaras = this.#idojaras[0];
+        this.#idojaras.forEach(element => {
+            if (element.fok < minFok.fok) {
+                minFok = element;
+            }
+        });
+        const formazottIdo = `${minFok.ido.slice(0, 2)}:${minFok.ido.slice(2)}`;
+        return `A legalacsonyabb hőmérséklet: ${minFok.telepules} ${formazottIdo} ${minFok.fok} fok.`;
+    }
 }

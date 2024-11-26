@@ -12,6 +12,10 @@ export default class Idojaras {
         return this.#ido;
     }
 
+    get fok(): number {
+        return this.#homerseklet;
+    }
+
     constructor(sor: string) {
         const m: string[] = sor.split(" ");
         this.#telepules = m[0];
