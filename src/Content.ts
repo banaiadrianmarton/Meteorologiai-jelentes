@@ -24,7 +24,15 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     const params = new url.URL(req.url as string, `http://${req.headers.host}/`).searchParams;
 
     const mo: Megoldas = new Megoldas("tavirathu13.txt");
-
+    let varosKod: string | undefined = params.get("varos")?.toUpperCase();
+    if (varosKod && varosKod.length != 2) {
+        res.write("A település kódja nem lehet hosszabb karakternél.");
+    }
+    if (varosKod == undefined) {
+        varosKod = "SM";
+    }
+    res.write(`2. feladat\nAdja meg a település kódját! Település: <input type='text' name='varos' value="${varosKod}" style='max-width:100px;' placeholder="" onChange='this.form.submit();'>\n`);
+    res.write(`${mo.Utolsomeres(varosKod)}`);
     res.write("</pre></form></body></html>");
     res.end();
 }

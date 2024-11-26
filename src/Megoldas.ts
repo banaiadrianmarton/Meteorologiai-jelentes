@@ -16,4 +16,16 @@ export default class Megoldas {
                 }
             });
     }
+
+    Utolsomeres(varoskod: string): string {
+        const varoskodok: string[] = [];
+        this.#idojaras.forEach(element => {
+            if (element.telepules === varoskod) {
+                varoskodok.push(element.ido);
+            }
+        });
+        const ido = varoskodok[varoskodok.length - 1];
+        const formazottIdo = `${ido.slice(0, 2)}:${ido.slice(2)}`;
+        return `Az utolsó mérési adat a megadott településről ${formazottIdo}-kor érkezett.`;
+    }
 }
