@@ -16,6 +16,10 @@ export default class Idojaras {
         return this.#homerseklet;
     }
 
+    get szeliranyErosseg(): string {
+        return this.#szeliranyEroseg;
+    }
+
     constructor(sor: string) {
         const m: string[] = sor.split(" ");
         this.#telepules = m[0];

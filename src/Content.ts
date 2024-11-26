@@ -36,6 +36,11 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write(`\n3.feladat\n`);
     res.write(`${mo.HomersekletAlacsony}\n`);
     res.write(`${mo.HomersekletMagas}\n`);
+    res.write(`4.feladat\n`);
+    mo.Szelcsend().forEach(element => {
+        const formazottIdo = `${element.ido.slice(0, 2)}:${element.ido.slice(2)}`;
+        res.write(`${element.telepules} ${formazottIdo}\n`);
+    });
     res.write("</pre></form></body></html>");
     res.end();
 }
