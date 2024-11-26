@@ -8,9 +8,9 @@ export default class Idojaras {
         return this.#telepules;
     }
 
-    // get ido(){
-    //     this.#ido
-    // }
+    get ido(): string {
+        return this.#ido;
+    }
 
     constructor(sor: string) {
         const m: string[] = sor.split(" ");
