@@ -33,6 +33,9 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     }
     res.write(`2. feladat\nAdja meg a település kódját! Település: <input type='text' name='varos' value="${varosKod}" style='max-width:100px;' placeholder="" onChange='this.form.submit();'>\n`);
     res.write(`${mo.Utolsomeres(varosKod)}`);
+    res.write(`\n3.feladat\n`);
+    res.write(`${mo.HomersekletAlacsony}\n`);
+    res.write(`${mo.HomersekletMagas}\n`);
     res.write("</pre></form></body></html>");
     res.end();
 }
