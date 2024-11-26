@@ -1,6 +1,7 @@
 ﻿import fs from "fs"; // https://nodejs.org/docs/latest-v14.x/api/fs.html
 import http from "http"; // https://nodejs.org/docs/latest-v14.x/api/http.html
 import url from "url"; // https://nodejs.org/docs/latest-v14.x/api/url.html
+import Megoldas from "./Megoldas";
 
 export default function content(req: http.IncomingMessage, res: http.ServerResponse): void {
     // favicon.ico kérés kiszolgálása:
@@ -21,6 +22,8 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write("</head>");
     res.write("<body><form><pre>");
     const params = new url.URL(req.url as string, `http://${req.headers.host}/`).searchParams;
+
+    const mo: Megoldas = new Megoldas("tavirathu13.txt");
 
     res.write("</pre></form></body></html>");
     res.end();
