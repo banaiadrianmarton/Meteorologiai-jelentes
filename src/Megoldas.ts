@@ -50,4 +50,14 @@ export default class Megoldas {
         const formazottIdo = `${minFok.ido.slice(0, 2)}:${minFok.ido.slice(2)}`;
         return `A legalacsonyabb hőmérséklet: ${minFok.telepules} ${formazottIdo} ${minFok.fok} fok.`;
     }
+
+    Szelcsend(): Idojaras[] {
+        const szelcsendIdopontok: Idojaras[] = [];
+        this.#idojaras.forEach(element => {
+            if (element.szeliranyErosseg === "00000") {
+                szelcsendIdopontok.push(element);
+            }
+        });
+        return szelcsendIdopontok;
+    }
 }
