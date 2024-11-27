@@ -41,6 +41,8 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
         const formazottIdo = `${element.ido.slice(0, 2)}:${element.ido.slice(2)}`;
         res.write(`${element.telepules} ${formazottIdo}\n`);
     });
+    res.write(`5.feladat\n`);
+    res.write(`${mo.KozepHomersekletEsIngadozas()}`);
     res.write("</pre></form></body></html>");
     res.end();
 }
