@@ -42,7 +42,8 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
         res.write(`${element.telepules} ${formazottIdo}\n`);
     });
     res.write(`5.feladat\n`);
-    res.write(`${mo.KozepHomersekletEsIngadozas()}`);
+    res.write(`${mo.KozepHomersekletEsIngadozas()}\n`);
+    // res.write(`${mo.fajlIr(varosKod)}`);
     res.write("</pre></form></body></html>");
     res.end();
 }

@@ -1,5 +1,6 @@
-import fs from "fs";
+import fs, { write, writeFileSync } from "fs";
 import Idojaras from "./Idojaras";
+import { strict } from "assert";
 
 export default class Megoldas {
     #idojaras: Idojaras[] = [];
@@ -104,4 +105,17 @@ export default class Megoldas {
 
         return eredmeny;
     }
+    // fajlIr(telepKod: string): string {
+    //     const varosLista: Idojaras[] = [];
+    //     this.#idojaras.forEach(varos => {
+    //         if (varos.telepules == telepKod) {
+    //             varosLista.push(varos);
+    //         }
+    //     });
+    //     if (varosLista[0] == null) {
+    //         return `\nEz a város nem szerepel a listában.`;
+    //     }
+    //     fs.writeFileSync(`${telepKod}.txt`, `${varosLista}`);
+    //     return `\nA fájlok elkészültek.`;
+    // }
 }
